@@ -15,10 +15,10 @@ data class GoogleAccount(
     val isBlocked: Boolean = false,
     val blockReason: String? = null,
     val createdAt: Long = System.currentTimeMillis(),
-    val uniqueId: String = generateUniqueId()
+    val uniqueId: String = ""
 ) {
     companion object {
-        private fun generateUniqueId(): String {
+        fun generateUniqueId(): String {
             return "acc_${System.currentTimeMillis()}_${(0..9999).random()}"
         }
     }
