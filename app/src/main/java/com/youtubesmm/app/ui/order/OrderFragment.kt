@@ -40,9 +40,9 @@ class OrderFragment : Fragment() {
 
     private fun setupSpinner() {
         val services = ServiceType.values().map { it.displayName }
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, services)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.spinnerService.adapter = adapter
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, services)
+        binding.spinnerService.setAdapter(adapter)
+        binding.spinnerService.setText(services.firstOrNull() ?: "", false)
     }
 
     private fun setupObservers() {
@@ -80,8 +80,8 @@ class OrderFragment : Fragment() {
             return
         }
 
-        val selectedPosition = binding.spinnerService.selectedItemPosition
-        val serviceType = ServiceType.values().getOrNull(selectedPosition) ?: ServiceType.VIEWS
+        val selectedText = binding.spinnerService.text.toString()
+        val serviceType = ServiceType.values().find { it.displayName == selectedText } ?: ServiceType.VIEWS
 
         viewModel.submitOrder(url, quantity, serviceType, comment.takeIf { it.isNotEmpty() })
     }
@@ -104,7 +104,8 @@ class OrderFragment : Fragment() {
             etUrl.text?.clear()
             etQuantity.text?.clear()
             etComment.text?.clear()
-            spinnerService.setSelection(0)
+            val services = ServiceType.values().map { it.displayName }
+            spinnerService.setText(services.firstOrNull() ?: "", false)
         }
     }
 
