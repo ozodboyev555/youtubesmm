@@ -44,28 +44,28 @@ interface GoogleAccountDao {
     fun getActiveAccounts(): Flow<List<GoogleAccount>>
 
     @Query("SELECT * FROM google_accounts WHERE isActive = 1 AND isBlocked = 0 ORDER BY lastUsed ASC LIMIT 1")
-    suspend fun getNextAvailableAccount(): GoogleAccount?
+    fun getNextAvailableAccount(): GoogleAccount?
 
     @Insert
-    suspend fun insertAccount(account: GoogleAccount): Long
+    fun insertAccount(account: GoogleAccount): Long
 
     @Insert
-    suspend fun insertAccounts(accounts: List<GoogleAccount>): List<Long>
+    fun insertAccounts(accounts: List<GoogleAccount>): List<Long>
 
     @Update
-    suspend fun updateAccount(account: GoogleAccount): Int
+    fun updateAccount(account: GoogleAccount): Int
 
     @Query("UPDATE google_accounts SET lastUsed = :timestamp, useCount = useCount + 1 WHERE id = :accountId")
-    suspend fun markAccountAsUsed(accountId: Long, timestamp: Long = System.currentTimeMillis()): Int
+    fun markAccountAsUsed(accountId: Long, timestamp: Long = System.currentTimeMillis()): Int
 
     @Query("UPDATE google_accounts SET isBlocked = 1, blockReason = :reason WHERE id = :accountId")
-    suspend fun blockAccount(accountId: Long, reason: String): Int
+    fun blockAccount(accountId: Long, reason: String): Int
 
     @Query("SELECT COUNT(*) FROM google_accounts WHERE isActive = 1 AND isBlocked = 0")
-    suspend fun getActiveAccountCount(): Int
+    fun getActiveAccountCount(): Int
 
     @Query("DELETE FROM google_accounts")
-    suspend fun clearAllAccounts(): Int
+    fun clearAllAccounts(): Int
 }
 
 @Dao
@@ -77,22 +77,22 @@ interface OrderDao {
     fun getActiveOrders(): Flow<List<Order>>
 
     @Insert
-    suspend fun insertOrder(order: Order): Long
+    fun insertOrder(order: Order): Long
 
     @Update
-    suspend fun updateOrder(order: Order): Int
+    fun updateOrder(order: Order): Int
 
     @Query("UPDATE orders SET status = :status, startedAt = :startedAt WHERE id = :orderId")
-    suspend fun updateOrderStatus(orderId: Long, status: String, startedAt: Long? = null): Int
+    fun updateOrderStatus(orderId: Long, status: String, startedAt: Long? = null): Int
 
     @Query("UPDATE orders SET completedCount = completedCount + 1 WHERE id = :orderId")
-    suspend fun incrementCompletedCount(orderId: Long): Int
+    fun incrementCompletedCount(orderId: Long): Int
 
     @Query("UPDATE orders SET failedCount = failedCount + 1 WHERE id = :orderId")
-    suspend fun incrementFailedCount(orderId: Long): Int
+    fun incrementFailedCount(orderId: Long): Int
 
     @Query("SELECT * FROM orders WHERE id = :orderId")
-    suspend fun getOrderById(orderId: Long): Order?
+    fun getOrderById(orderId: Long): Order?
 }
 
 @Dao
@@ -101,31 +101,31 @@ interface TaskDao {
     fun getTasksByOrder(orderId: Long): Flow<List<Task>>
 
     @Query("SELECT * FROM tasks WHERE status = 'PENDING' ORDER BY priority DESC, createdAt ASC LIMIT 1")
-    suspend fun getNextPendingTask(): Task?
+    fun getNextPendingTask(): Task?
 
     @Insert
-    suspend fun insertTask(task: Task): Long
+    fun insertTask(task: Task): Long
 
     @Insert
-    suspend fun insertTasks(tasks: List<Task>): List<Long>
+    fun insertTasks(tasks: List<Task>): List<Long>
 
     @Update
-    suspend fun updateTask(task: Task): Int
+    fun updateTask(task: Task): Int
 
     @Query("UPDATE tasks SET status = :status, startedAt = :startedAt WHERE id = :taskId")
-    suspend fun updateTaskStatus(taskId: Long, status: String, startedAt: Long? = null): Int
+    fun updateTaskStatus(taskId: Long, status: String, startedAt: Long? = null): Int
 
     @Query("UPDATE tasks SET status = :status, completedAt = :completedAt, errorMessage = :errorMessage WHERE id = :taskId")
-    suspend fun completeTask(taskId: Long, status: String, completedAt: Long = System.currentTimeMillis(), errorMessage: String? = null): Int
+    fun completeTask(taskId: Long, status: String, completedAt: Long = System.currentTimeMillis(), errorMessage: String? = null): Int
 
     @Query("SELECT COUNT(*) FROM tasks WHERE orderId = :orderId")
-    suspend fun getTaskCountByOrder(orderId: Long): Int
+    fun getTaskCountByOrder(orderId: Long): Int
 
     @Query("SELECT COUNT(*) FROM tasks WHERE orderId = :orderId AND status = 'COMPLETED'")
-    suspend fun getCompletedTaskCountByOrder(orderId: Long): Int
+    fun getCompletedTaskCountByOrder(orderId: Long): Int
 
     @Query("SELECT COUNT(*) FROM tasks WHERE orderId = :orderId AND status = 'FAILED'")
-    suspend fun getFailedTaskCountByOrder(orderId: Long): Int
+    fun getFailedTaskCountByOrder(orderId: Long): Int
 }
 
 class Converters {
