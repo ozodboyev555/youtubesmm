@@ -60,9 +60,9 @@ class OrderFragment : Fragment() {
     }
 
     private fun submitOrder() {
-        val url = binding.etUrl.text.toString().trim()
-        val quantityText = binding.etQuantity.text.toString().trim()
-        val comment = binding.etComment.text.toString().trim()
+        val url = binding.etUrl.text?.toString()?.trim() ?: ""
+        val quantityText = binding.etQuantity.text?.toString()?.trim() ?: ""
+        val comment = binding.etComment.text?.toString()?.trim() ?: ""
 
         if (url.isEmpty()) {
             binding.etUrl.error = "URL kiriting"
@@ -81,7 +81,7 @@ class OrderFragment : Fragment() {
         }
 
         val selectedPosition = binding.spinnerService.selectedItemPosition
-        val serviceType = ServiceType.values()[selectedPosition]
+        val serviceType = ServiceType.values().getOrNull(selectedPosition) ?: ServiceType.VIEWS
 
         viewModel.submitOrder(url, quantity, serviceType, comment.takeIf { it.isNotEmpty() })
     }
@@ -101,9 +101,9 @@ class OrderFragment : Fragment() {
 
     private fun clearForm() {
         binding.apply {
-            etUrl.text.clear()
-            etQuantity.text.clear()
-            etComment.text.clear()
+            etUrl.text?.clear()
+            etQuantity.text?.clear()
+            etComment.text?.clear()
             spinnerService.setSelection(0)
         }
     }
