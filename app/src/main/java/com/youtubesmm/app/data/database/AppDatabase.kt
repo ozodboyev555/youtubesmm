@@ -9,8 +9,6 @@ import com.youtubesmm.app.data.model.OrderStatus
 import com.youtubesmm.app.data.model.TaskStatus
 import kotlinx.coroutines.flow.Flow
 
-// Temporarily disabled Room database to fix build issues
-/*
 @Database(
     entities = [GoogleAccount::class, Order::class, Task::class],
     version = 1,
@@ -26,10 +24,10 @@ abstract class AppDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
-        fun getInstance(): AppDatabase {
+        fun getInstance(context: android.content.Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
-                val instance = androidx.room.Room.databaseBuilder(
-                    android.content.Context.getApplicationContext(),
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
                     AppDatabase::class.java,
                     "youtube_smm_database"
                 ).build()
@@ -149,15 +147,3 @@ class Converters {
     @TypeConverter
     fun toTaskStatus(value: String): TaskStatus = TaskStatus.valueOf(value)
 }
-*/
-
-// Simple placeholder for now
-class AppDatabase {
-    companion object {
-        fun getInstance(): AppDatabase = AppDatabase()
-    }
-}
-
-interface GoogleAccountDao
-interface OrderDao  
-interface TaskDao
