@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#FF0000</color>
+    <color name="primary_dark">#CC0000</color>
+    <color name="primary_variant">#FF4444</color>
+    <color name="secondary">#2196F3</color>
+    <color name="secondary_variant">#1976D2</color>
+    
+    <color name="background">#FFFFFF</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="error">#B00020</color>
+    
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="on_background">#000000</color>
+    <color name="on_surface">#000000</color>
+    <color name="on_error">#FFFFFF</color>
+    
+    <color name="success_green">#4CAF50</color>
+    <color name="warning_orange">#FF9800</color>
+    <color name="info_blue">#2196F3</color>
+    
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#BDBDBD</color>
+    
+    <color name="divider">#BDBDBD</color>
+    <color name="card_background">#F5F5F5</color>
+    
+    <!-- YouTube ranglari -->
+    <color name="youtube_red">#FF0000</color>
+    <color name="youtube_dark_red">#CC0000</color>
+    <color name="youtube_light_red">#FF4444</color>
+    
+    <!-- Gradient ranglar -->
+    <color name="gradient_start">#FF0000</color>
+    <color name="gradient_end">#FF4444</color>
+    
+</resources>

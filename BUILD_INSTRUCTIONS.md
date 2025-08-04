@@ -1,6 +1,61 @@
-# YouTube SMM Android App
+# YouTube SMM Android App - Build Ko'rsatmalari
+
+## Loyiha Tavsifi
 
 Bu Android ilovasi YouTube kanallarini organik rivojlantirish uchun yaratilgan. Ilova 90,000 ta Google hisoblardan foydalanib, YouTube algoritmiga qarshi turish uchun maxsus texnologiyalar ishlatadi.
+
+## APK Build Qilish
+
+### 1. Docker orqali (Tavsiya etiladi)
+
+```bash
+# Docker va docker-compose o'rnatilgan bo'lishi kerak
+./build.sh
+```
+
+### 2. GitHub Actions orqali
+
+1. GitHub ga loyihani push qiling
+2. Actions tab ga o'ting
+3. "Build APK" workflow ni ishga tushiring
+4. APK ni Artifacts dan yuklab oling
+
+### 3. Mahalliy build (Android Studio kerak)
+
+```bash
+# Android Studio va Android SDK o'rnatilgan bo'lishi kerak
+./gradlew assembleRelease
+```
+
+## Loyiha Strukturasi
+
+```
+youtube-smm-android/
+├── app/
+│   └── src/main/
+│       ├── java/com/youtubesmm/app/
+│       │   ├── data/
+│       │   │   ├── database/          # Room Database
+│       │   │   └── model/             # Data modellar
+│       │   ├── service/               # Background services
+│       │   ├── ui/                    # UI components
+│       │   │   ├── home/              # Home fragment
+│       │   │   ├── order/             # Order fragment
+│       │   │   └── ...                # Boshqa fragmentlar
+│       │   └── utils/                 # Utility classes
+│       └── res/
+│           ├── layout/                # Layout files
+│           ├── drawable/              # Icons va images
+│           ├── values/                # Strings, colors, themes
+│           ├── menu/                  # Menu files
+│           └── navigation/            # Navigation graph
+├── gradle/                            # Gradle wrapper
+├── .github/workflows/                 # GitHub Actions
+├── Dockerfile                         # Docker build
+├── docker-compose.yml                 # Docker compose
+├── build.sh                          # Build script
+└── README.md                         # Loyiha hujjati
+```
 
 ## Asosiy Xususiyatlar
 
@@ -55,36 +110,6 @@ Bu Android ilovasi YouTube kanallarini organik rivojlantirish uchun yaratilgan. 
 - **Hisob bloklash** - Xatolik yuz berganda
 - **Vaqt kechikishlari** - Tabiiy harakatlar
 
-## O'rnatish
-
-### Talablar
-- Android Studio Arctic Fox yoki yangiroq
-- Android SDK 26+ (Android 8.0)
-- JDK 8 yoki yangiroq
-
-### Qadamlar
-
-1. **Loyihani klonlash**
-```bash
-git clone https://github.com/your-username/youtube-smm-android.git
-cd youtube-smm-android
-```
-
-2. **Gradle sync**
-```bash
-./gradlew build
-```
-
-3. **APK yaratish**
-```bash
-./gradlew assembleRelease
-```
-
-4. **Qurilmaga o'rnatish**
-```bash
-adb install app/build/outputs/apk/release/app-release.apk
-```
-
 ## Foydalanish
 
 ### 1. Hisoblarni Yuklash
@@ -120,32 +145,6 @@ Ilova quyidagi ruxsatlarni talab qiladi:
 - `FOREGROUND_SERVICE` - Foreground service
 - `SYSTEM_ALERT_WINDOW` - System overlay
 
-## Texnik Tuzilma
-
-```
-app/
-├── src/main/
-│   ├── java/com/youtubesmm/app/
-│   │   ├── data/
-│   │   │   ├── database/          # Room Database
-│   │   │   └── model/             # Data modellar
-│   │   ├── service/               # Background services
-│   │   ├── ui/                    # UI components
-│   │   │   ├── home/              # Home fragment
-│   │   │   ├── order/             # Order fragment
-│   │   │   ├── worker/            # Worker fragment
-│   │   │   ├── monitoring/        # Monitoring fragment
-│   │   │   ├── accounts/          # Accounts fragment
-│   │   │   └── settings/          # Settings fragment
-│   │   └── utils/                 # Utility classes
-│   └── res/
-│       ├── layout/                # Layout files
-│       ├── drawable/              # Icons va images
-│       ├── values/                # Strings, colors, themes
-│       ├── menu/                  # Menu files
-│       └── navigation/            # Navigation graph
-```
-
 ## Xavfsizlik Eslatmalari
 
 ⚠️ **Muhim**: Bu ilova faqat ta'lim va test maqsadlarida yaratilgan. Barcha risklar hisobga olingan.
@@ -161,10 +160,6 @@ Agar savollaringiz bo'lsa:
 - Issue oching GitHub da
 - Email: support@youtubesmm.com
 - Telegram: @youtubesmm_support
-
-## Litsenziya
-
-Bu loyiha MIT litsenziyasi ostida tarqatiladi. Batafsil ma'lumot uchun `LICENSE` faylini ko'ring.
 
 ---
 

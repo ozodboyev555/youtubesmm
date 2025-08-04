@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">YouTube SMM</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Bosh Menu</string>
+    <string name="nav_order">Buyurtma Berish</string>
+    <string name="nav_worker">Ishchi Menu</string>
+    <string name="nav_monitoring">Monitoring</string>
+    <string name="nav_accounts">Google Hisoblar</string>
+    <string name="nav_settings">Sozlamalar</string>
+    
+    <!-- Home Fragment -->
+    <string name="home_title">YouTube SMM Boshqaruv</string>
+    <string name="home_status">Holat</string>
+    <string name="home_active_orders">Faol Buyurtmalar</string>
+    <string name="home_completed_today">Bugun Tugallangan</string>
+    <string name="home_total_accounts">Jami Hisoblar</string>
+    <string name="home_available_accounts">Mavjud Hisoblar</string>
+    
+    <!-- Order Fragment -->
+    <string name="order_title">Yangi Buyurtma</string>
+    <string name="order_url_hint">YouTube URL</string>
+    <string name="order_quantity_hint">Miqdor</string>
+    <string name="order_service_hint">Xizmat turini tanlang</string>
+    <string name="order_submit">Buyurtma Berish</string>
+    <string name="order_success">Buyurtma muvaffaqiyatli yuborildi!</string>
+    <string name="order_error">Xatolik yuz berdi</string>
+    
+    <!-- Services -->
+    <string name="service_views">Ko\'rishlar</string>
+    <string name="service_likes">Layklar</string>
+    <string name="service_comments">Kommentlar</string>
+    <string name="service_subscribers">Obunachilar</string>
+    <string name="service_shorts_views">Shorts Ko\'rishlar</string>
+    <string name="service_shorts_likes">Shorts Layklar</string>
+    <string name="service_live_participation">Live Stream Ishtirok</string>
+    
+    <!-- Worker Fragment -->
+    <string name="worker_title">Ishchi Menu</string>
+    <string name="worker_start">Ishni Boshlash</string>
+    <string name="worker_stop">To\'xtatish</string>
+    <string name="worker_pause">Pauza</string>
+    <string name="worker_resume">Davom Ettirish</string>
+    <string name="worker_current_task">Joriy Vazifa</string>
+    <string name="worker_progress">Jarayon</string>
+    
+    <!-- Monitoring Fragment -->
+    <string name="monitoring_title">Monitoring</string>
+    <string name="monitoring_progress">Jarayon</string>
+    <string name="monitoring_completed">Tugallangan</string>
+    <string name="monitoring_remaining">Qoldi</string>
+    <string name="monitoring_eta">Taxminiy vaqt</string>
+    <string name="monitoring_history">Tarix</string>
+    
+    <!-- Accounts Fragment -->
+    <string name="accounts_title">Google Hisoblar</string>
+    <string name="accounts_import">Hisoblarni Yuklash</string>
+    <string name="accounts_export">Eksport</string>
+    <string name="accounts_clear">Tozalash</string>
+    <string name="accounts_count">Hisoblar soni: %d</string>
+    <string name="accounts_import_success">Hisoblar muvaffaqiyatli yuklandi</string>
+    <string name="accounts_import_error">Yuklashda xatolik</string>
+    
+    <!-- Settings Fragment -->
+    <string name="settings_title">Sozlamalar</string>
+    <string name="settings_ip_rotation">IP Rotatsiya</string>
+    <string name="settings_delay_between">Hisoblar orasidagi kechikish</string>
+    <string name="settings_task_delay">Vazifalar orasidagi kechikish</string>
+    <string name="settings_user_agent_rotation">User Agent Rotatsiya</string>
+    <string name="settings_clear_cache">Keshni tozalash</string>
+    <string name="settings_about">Haqida</string>
+    
+    <!-- Common -->
+    <string name="ok">OK</string>
+    <string name="cancel">Bekor</string>
+    <string name="save">Saqlash</string>
+    <string name="delete">O\'chirish</string>
+    <string name="loading">Yuklanmoqda...</string>
+    <string name="error">Xatolik</string>
+    <string name="success">Muvaffaqiyatli</string>
+    
+    <!-- Notifications -->
+    <string name="notification_channel_id">youtube_smm_channel</string>
+    <string name="notification_channel_name">YouTube SMM</string>
+    <string name="notification_channel_description">YouTube SMM ilovasi bildirishlari</string>
+    <string name="notification_task_progress">Vazifa jarayoni: %d%%</string>
+    <string name="notification_task_completed">Vazifa tugallandi</string>
+    <string name="notification_ip_changed">IP manzil o\'zgartirildi</string>
+    
+</resources>
